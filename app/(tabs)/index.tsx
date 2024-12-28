@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Button from "../components/Button";
 
 const Home = () => {
@@ -13,3 +13,5 @@ const Home = () => {
 };
 
 export default Home;
+
+const styles = StyleSheet.create({});
