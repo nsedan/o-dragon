@@ -1,14 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
-interface ButtonProps {
+const Button = ({
+  onPress,
+  children,
+}: {
   onPress: () => void;
   children: React.ReactNode;
-}
-
-const Button = ({ onPress, children }: ButtonProps) => (
-  <TouchableOpacity onPress={onPress}>{children}</TouchableOpacity>
-);
+}) => <TouchableOpacity onPress={onPress}>{children}</TouchableOpacity>;
 
 export default Button;
 

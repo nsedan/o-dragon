@@ -1,15 +1,17 @@
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Text, View } from "react-native";
 import Button from "../components/Button";
 
-const Home = () => {
+const Account = () => {
   return (
     <View style={{ flexGrow: 1 }}>
       <Button onPress={() => console.log("hi")}>
-        <Text>Home</Text>
+        <Text>Account</Text>
       </Button>
     </View>
   );
 };
 
-export default Home;
+export default Account;
+
+const styles = StyleSheet.create({});

@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 const Explore = () => {
   return (
-    <View>
+    <View style={{ flexGrow: 1 }}>
       <Button onPress={() => console.log("hi")}>
         <Text>Explore</Text>
       </Button>

@@ -1,38 +1,35 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
+import { usePathname } from "expo-router";
+import routes from "../routes";
 
 export default function TabLayout() {
+  const currentPath = usePathname();
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "black",
-        // headerShown: false,
-        // tabBarButton: HapticTab,
-        // tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: "absolute",
           },
           default: {},
         }),
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          // tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: "Explore",
-          // tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+      {Object.entries(routes).map(([name, r]) => (
+        <Tabs.Screen
+          key={name}
+          name={name}
+          options={{
+            title: r.title,
+            tabBarIcon: ({ color }) => (
+              <r.icon size={24} fill={color} active={currentPath === r.path} />
+            ),
+          }}
+        />
+      ))}
     </Tabs>
   );
 }
