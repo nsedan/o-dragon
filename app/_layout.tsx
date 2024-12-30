@@ -1,19 +1,19 @@
-import React from "react";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
-import "react-native-reanimated";
-import colors from "./colors";
-import BrandIcon from "./components/Icons/BrandIcon";
+import React from 'react';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import 'react-native-reanimated';
+import colors from './colors';
+import BrandIcon from './components/Icons/BrandIcon';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf')
   });
 
   useEffect(() => {
@@ -34,8 +34,8 @@ export default function RootLayout() {
           options={{
             headerTitle: () => <BrandIcon size={24} fill={colors.white} />,
             headerStyle: {
-              backgroundColor: colors.primary,
-            },
+              backgroundColor: colors.primary
+            }
           }}
         />
         <Stack.Screen name="+not-found" />

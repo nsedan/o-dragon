@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import Button from "../components/Button";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Button from '../components/Button';
+import colors from '../colors';
 
 const Account = () => {
   return (
-    <View style={{ flexGrow: 1 }}>
-      <Button onPress={() => console.log("hi")}>
-        <Text>Account</Text>
+    <View style={{ flexGrow: 1, backgroundColor: colors.grey, padding: 16 }}>
+      <Button onPress={() => console.log('hi')}>
+        <Text>Coming soon...</Text>
       </Button>
     </View>
   );

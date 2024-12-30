@@ -1,5 +1,5 @@
-import Svg, { Path } from "react-native-svg";
-import React from "react";
+import Svg, { Path } from 'react-native-svg';
+import React from 'react';
 
 const BrandIcon = ({ size, fill }: { size: number; fill: string }) => (
   <Svg height={size} viewBox="0 -960 960 960" width={size} fill={fill}>
