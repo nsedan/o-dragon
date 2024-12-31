@@ -2,8 +2,8 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
-import routes from '../routes';
-import colors from '../colors';
+import routes from '../utils/routes';
+import colors from '../utils/colors';
 
 export default function TabLayout() {
   const currentPath = usePathname();

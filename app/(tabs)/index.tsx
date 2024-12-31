@@ -7,16 +7,10 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import colors from '../colors';
+import colors from '../utils/colors';
+import { Drink } from '../utils/customTypes';
 
-interface Drink {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-  strImageSource: string;
-  [key: `strIngredient${number}`]: string | undefined;
-  [key: `strMeasure${number}`]: string | undefined;
-}
+const { white, black, primary } = colors;
 
 const Home = () => {
   const [drink, setDrink] = useState<Drink | null>(null);
@@ -48,8 +42,8 @@ const Home = () => {
     const item = i + 1;
     const qty = drink[`strMeasure${item}`];
     const ing = drink[`strIngredient${item}`];
-    return qty || ing ? `${ing} ${qty}` : null;
-  });
+    return qty && ing ? `${qty} ${ing}` : null;
+  }).filter((f) => f);
 
   return (
     <ScrollView
@@ -63,13 +57,11 @@ const Home = () => {
         <Image source={{ uri: drink.strDrinkThumb }} style={styles.image} />
         <Text style={styles.drinkName}>{drink.strDrink}</Text>
         <Text style={styles.ingredients}>Ingredients</Text>
-        {ingredients
-          .filter((d) => d)
-          .map((ingredient) => (
-            <Text key={ingredient} style={styles.item}>
-              {ingredient}
-            </Text>
-          ))}
+        {ingredients.map((ingredient) => (
+          <Text key={ingredient} style={styles.item}>
+            {ingredient}
+          </Text>
+        ))}
       </TouchableOpacity>
     </ScrollView>
   );
@@ -79,12 +71,12 @@ export default Home;
 
 const styles = StyleSheet.create({
   tile: {
-    backgroundColor: colors.primary,
+    backgroundColor: primary,
     borderRadius: 8,
     padding: 16,
     marginVertical: 16,
     shadowOffset: { width: 4, height: 4 },
-    shadowColor: 'black',
+    shadowColor: black,
     shadowOpacity: 0.5,
     shadowRadius: 8
   },
@@ -94,25 +86,25 @@ const styles = StyleSheet.create({
     maxHeight: 300,
     alignSelf: 'center',
     borderRadius: 8,
-    borderColor: colors.white,
+    borderColor: white,
     borderWidth: 1
   },
   drinkName: {
-    color: colors.white,
+    color: white,
     paddingTop: 12,
     fontWeight: 700,
     fontSize: 24,
     lineHeight: 32
   },
   ingredients: {
-    color: colors.white,
+    color: white,
     paddingTop: 8,
     fontWeight: 600,
     fontSize: 16,
     lineHeight: 24
   },
   item: {
-    color: colors.white,
+    color: white,
     paddingTop: 4,
     fontWeight: 600,
     fontSize: 12,
