@@ -1,21 +1,23 @@
-import { Tabs } from "expo-router";
-import React from "react";
-import { Platform } from "react-native";
-import { usePathname } from "expo-router";
-import routes from "../routes";
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Platform } from 'react-native';
+import { usePathname } from 'expo-router';
+import routes from '../utils/routes';
+import colors from '../utils/colors';
 
 export default function TabLayout() {
   const currentPath = usePathname();
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "black",
+        headerShown: false,
+        tabBarActiveTintColor: colors.white,
         tabBarStyle: Platform.select({
           ios: {
-            position: "absolute",
+            position: 'absolute'
           },
-          default: {},
-        }),
+          default: {}
+        })
       }}
     >
       {Object.entries(routes).map(([name, r]) => (
@@ -27,6 +29,7 @@ export default function TabLayout() {
             tabBarIcon: ({ color }) => (
               <r.icon size={24} fill={color} active={currentPath === r.path} />
             ),
+            tabBarStyle: { backgroundColor: colors.primary }
           }}
         />
       ))}

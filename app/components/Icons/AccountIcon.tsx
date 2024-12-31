@@ -1,10 +1,10 @@
-import Svg, { Path } from "react-native-svg";
-import React from "react";
+import Svg, { Path } from 'react-native-svg';
+import React from 'react';
 
 const AccountIcon = ({
   size,
   fill,
-  active = false,
+  active = false
 }: {
   size: number;
   fill: string;

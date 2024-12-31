@@ -1,9 +1,9 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
 
 const Button = ({
   onPress,
-  children,
+  children
 }: {
   onPress: () => void;
   children: React.ReactNode;
